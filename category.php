@@ -58,7 +58,8 @@
 				<?php } ?>                 
  
             </div><!-- #content -->
+						<?php get_sidebar('right'); ?>
         </div><!-- #container -->
  
-<?php get_sidebar('right'); ?>
+
 <?php get_footer(); ?>
