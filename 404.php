@@ -11,6 +11,8 @@
 
 				<div class="entry-content">
 					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'offcanvas' ); ?></p>
+																																									
+					<p><a href="/">Go to the Home page</a> </p>
 
 					<?php get_search_form(); ?>
 
