@@ -72,8 +72,7 @@ clearfix:after { /* clearfix */
 	clear: both;
 	height: 0;
 }
-[role="main"]:before,
-[role="main"]:after {
+[role="main"]:before, [role="main"]:after {
 	content: " ";
 	position: absolute;
 	z-index: -1;
@@ -87,9 +86,7 @@ clearfix:after { /* clearfix */
 	left: 100%;
 	background: rgba(0,0,0,.15);	
 }
-[role="navigation"],
-[role="main"],
-[role="complementary"] {
+[role="navigation"], [role="main"], [role="complementary"] {
 	-webkit-transition: .2s all ease;
 	-moz-transition: .2s all ease;
 	-o-transition: .2s all ease;		
@@ -164,8 +161,7 @@ clearfix:after { /* clearfix */
 .off-canvas-navigation ul li.sidebar-item {
 	float: right;
 }
-.menu-button,
-.sidebar-button {
+.menu-button, .sidebar-button {
 	padding: 1em 20%;
 	font-size: 14px;
 	display: block;
@@ -175,11 +171,9 @@ clearfix:after { /* clearfix */
 	border-top-right-radius: 1em;
 	box-shadow: inset 0 20px 20px rgba(255,255,255,.1);		
 }
-.menu-button.active-button,
-.sidebar-button.active-button {
+.menu-button.active-button, .sidebar-button.active-button {
 }
-a.menu-button:hover,
-a.sidebar-button:hover {
+a.menu-button:hover, a.sidebar-button:hover {
 	text-decoration: none;	
 	background: rgba(0,0,0,.35);
 	color: #ddd;
@@ -210,9 +204,7 @@ a.sidebar-button:hover {
 	padding: .8em;
 	border-radius: 4px;
 }
-[role="navigation"] li a:hover,
-[role="navigation"] li a:active,
-[role="navigation"] li a:focus {
+[role="navigation"] li a:hover, [role="navigation"] li a:active, [role="navigation"] li a:focus {
 	background: rgba(0,0,0,.2);
 	text-decoration: none;
 }
@@ -228,24 +220,33 @@ a.sidebar-button:hover {
 [role="main"] h1 {
 	text-align: center;	
 }
-.illustrations {
-	margin: 3% auto;
-	display: block;		
-}
-aside {
+
+[role="complementary"] {
 	margin-bottom: 15%;
 }
-aside li {
-	list-style: none;
+[role="complementary"] li {
 	margin: 0;
 	display: block;	
 }
-aside li a {
+
+[role="navigation"] li.widget-container , [role="complementary"] li.widget-container {
+	list-style: none;
+	background: rgba(0,0,0,.1);
+	border-radius: 4px;
+	padding: .5em;
+}
+
+li.widget-container ul {
+	padding-left: 0;
+  display:block;
+}
+[role="complementary"] li a {
 	margin: 0;
 	padding: .5em 0;
 	display: block;	
-	border-bottom: 1px solid rgba(255,255,255,.2);
 }
+
+/* Footer stuff */
 .site-footer {
 	overflow: hidden;
 	padding: 25px 0;

@@ -3,6 +3,14 @@ add_filter( 'show_admin_bar', '__return_false' );
 register_nav_menu( 'Left Sidebar', 'Menu for the left sidebar' ); 
 add_theme_support( 'custom-background');
 
+function load_scripts() {
+	//$path = get_bloginfo('template_directory');
+	wp_enqueue_script('jquery');
+	//wp_enqueue_script('theme_javascript',  $path . '/theme.js', array('jquery'));
+}
+add_action('init', 'load_scripts');
+
+
 $header_args = array(
 	'width' => 300,
 	'height' => 100,

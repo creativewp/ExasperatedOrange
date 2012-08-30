@@ -92,6 +92,7 @@ jQuery(function () {
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="<?php printf( __( '%s latest posts', 'hbd-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php printf( __( '%s latest comments', 'hbd-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+
 </head>
 <body id="page" <?php body_class(''); ?>>
 <div id="wrapper" class="hfeed">
