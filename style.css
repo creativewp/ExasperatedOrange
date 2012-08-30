@@ -190,6 +190,9 @@ a.sidebar-button:hover {
 	border-top-right-radius: 0;	
 	background: rgba(0,0,0,.15);				
 }	
+.maintextmenu, .maintextside {
+	display:none;
+}
 /* Site Menu */
 [role="navigation"] li {
 	list-style: none;

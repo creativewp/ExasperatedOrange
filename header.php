@@ -22,12 +22,20 @@
 	$('body').removeClass("active-nav").toggleClass("active-sidebar");
 	$('.menu-button').removeClass("active-button");					
 	$('.sidebar-button').toggleClass("active-button");
+	$('.sidetext').toggle();
+	$('.maintextside').toggle();
+	$('.menutext').show();
+	$('.maintextmenu').hide();
 }
 
 var showMenu = function() {
 	$('body').removeClass("active-sidebar").toggleClass("active-nav");
 	$('.sidebar-button').removeClass("active-button");				
 	$('.menu-button').toggleClass("active-button");	
+	$('.menutext').toggle();
+	$('.maintextmenu').toggle();
+	$('.sidetext').show();
+	$('.maintextside').hide();
 }
 
 // add/remove classes everytime the window resize event fires
@@ -114,8 +122,8 @@ jQuery(function () {
 																																																													
 							<span class="off-canvas-navigation">
 								<ul>
-									<li class="menu-item"><a class='menu-button' href="#menu">Menu ≣</a></li>			
-									<li class="sidebar-item"><a class='sidebar-button' href="#sidebar">Extra +</a></li>
+																																																																																	<li class="menu-item"><a class='menu-button' href="#menu"><span class='menutext'>Menu ≣</span><span class='maintextmenu'>Main</span></a></li>			
+									<li class="sidebar-item"><a class='sidebar-button' href="#sidebar"><span class='sidetext'>Extra +</span><span class='maintextside'>Main</span></a></li>
 								</ul>
 							</span>	
 																																																													
