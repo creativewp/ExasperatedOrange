@@ -114,8 +114,8 @@ jQuery(function () {
 																																																													
 							<span class="off-canvas-navigation">
 								<ul>
-									<li class="menu-item"><a class='menu-button' href="#menu">Menu</a></li>			
-									<li class="sidebar-item"><a class='sidebar-button' href="#sidebar">Extra</a></li>
+									<li class="menu-item"><a class='menu-button' href="#menu">Menu ≣</a></li>			
+									<li class="sidebar-item"><a class='sidebar-button' href="#sidebar">Extra +</a></li>
 								</ul>
 							</span>	
 																																																													

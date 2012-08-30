@@ -154,6 +154,7 @@ clearfix:after { /* clearfix */
 	overflow: hidden;
 	display: block;
 	color: #fff;
+	white-space:nowrap;
 }
 .off-canvas-navigation ul li {
 	width: 20%;
