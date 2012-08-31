@@ -231,12 +231,15 @@ a.menu-button:hover, a.sidebar-button:hover {
 
 [role="navigation"] li.widget-container , [role="complementary"] li.widget-container {
 	list-style: none;
-	background: rgba(0,0,0,.1);
+	background: rgba(0,0,0,.3);
+
 	border-radius: 4px;
 	padding: .5em;
 	margin-bottom: .5em;
 }
-
+li.widget-container div p {
+color: #CCC;
+}
 li.widget-container ul {
 	padding-left: 0;
   display:block;
