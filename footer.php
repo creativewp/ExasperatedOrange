@@ -3,8 +3,9 @@
         <div id="colophon"> 
             <div id="site-info">
 							<ul>
-								<li>Site &copy; Phil Cooling 2012.  All rights reserved.</li>
-							  <li></li>
+		 						<li>Copyright &copy; <?php echo date("Y") ?> <a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li>
+	  						<li>Powered by <a href="#" >The OffCanvas Theme</a></li>
+  		          <li>Running on <a href="http://www.wordpress.org">WordPress</a></li>
 							  <li><a href="#header">Back to top</a></li>					
 						</ul>	
 	        </div><!-- #site-info -->

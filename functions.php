@@ -1,5 +1,5 @@
 <?php
-add_filter( 'show_admin_bar', '__return_false' );
+
 register_nav_menu( 'Left Sidebar', 'Menu for the left sidebar' ); 
 add_theme_support( 'custom-background');
 

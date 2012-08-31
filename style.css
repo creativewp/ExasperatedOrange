@@ -62,6 +62,10 @@ img {max-width: 80%; height: auto;}
 figure { margin: 10% 0; }
 figcaption { text-align: center; }
 
+* #wpadminbar { /* fix it so that the WordPress Admin bar displays properly! */
+  padding: 0;
+}
+
 /* Layout */
 .container { width: 100%;overflow: hidden;}
 clearfix:after { /* clearfix */
