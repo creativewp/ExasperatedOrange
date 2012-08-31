@@ -234,6 +234,7 @@ a.menu-button:hover, a.sidebar-button:hover {
 	background: rgba(0,0,0,.1);
 	border-radius: 4px;
 	padding: .5em;
+	margin-bottom: .5em;
 }
 
 li.widget-container ul {
@@ -244,6 +245,10 @@ li.widget-container ul {
 	margin: 0;
 	padding: .5em 0;
 	display: block;	
+}
+
+table#wp-calendar {
+	width: 100%;
 }
 
 /* Footer stuff */
