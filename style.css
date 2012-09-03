@@ -344,6 +344,10 @@ table#wp-calendar {
 		width: 44%;
 		padding: 3%;		
 	}
+ 
+	div.two-column {
+		width:69% !important;
+	}
 
 	.js [role="complementary"] {
 		width: 19%;	

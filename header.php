@@ -19,6 +19,7 @@
 	<!-- This script section needs to go in to a theme.js file but for now it's here! -->
 			<script type="text/javascript">
 	var showSidebar = function() {
+											
 	$('body').removeClass("active-nav").toggleClass("active-sidebar");
 	$('.menu-button').removeClass("active-button");					
 	$('.sidebar-button').toggleClass("active-button");
@@ -40,15 +41,23 @@ var showMenu = function() {
 
 // add/remove classes everytime the window resize event fires
 jQuery(window).resize(function(){
+	if ($('#content').attr('class') === 'two-column'){
+		$('.sidebar-button').css('display', 'none');									
+	}
 	var off_canvas_nav_display = $('.off-canvas-navigation').css('display');
+	
 	var menu_button_display = $('.menu-button').css('display');
-	if (off_canvas_nav_display === 'block') {			
-		$("body").removeClass("three-column").addClass("small-screen");				
-	} 
-	if (off_canvas_nav_display === 'none') {
-		$("body").removeClass("active-sidebar active-nav small-screen")
-			.addClass("three-column");			
-	}	
+	
+	if ($.browser.msie && parseInt($.browser.version, 10) === 8) {
+	} else {
+  	if (off_canvas_nav_display === 'block') {			
+			$("body").removeClass("three-column").addClass("small-screen");				
+		} 
+		if (off_canvas_nav_display === 'none') {
+			$("body").removeClass("active-sidebar active-nav small-screen")
+				.addClass("three-column");			
+		}	
+	}
 });	
 
 jQuery(document).ready(function($) {
@@ -89,8 +98,8 @@ jQuery(function () {
 
     <?php wp_head(); ?>
  
-    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="<?php printf( __( '%s latest posts', 'hbd-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
-    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php printf( __( '%s latest comments', 'hbd-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
+    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="<?php printf( __( '%s latest posts', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
+    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php printf( __( '%s latest comments', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 </head>
@@ -119,11 +128,11 @@ jQuery(function () {
 			</hgroup>
 
             <div id="access">
-				<!--<div class="skip-link"><a href="#content" title="<?php _e( 'Skip to content', 'hbd-theme' ) ?>"><?php _e( 'Skip to content', 'hbd-theme' ) ?></a></div>-->
+				<!--<div class="skip-link"><a href="#content" title="<?php _e( 'Skip to content', 'offcanvas-theme' ) ?>"><?php _e( 'Skip to content', 'offcanvas-theme' ) ?></a></div>-->
 																																																													
 							<span class="off-canvas-navigation">
 								<ul>
-																																																																																	<li class="menu-item"><a class='menu-button' href="#menu"><span class='menutext'>Menu ≣</span><span class='maintextmenu'>Main</span></a></li>			
+									<li class="menu-item"><a class='menu-button' href="#menu"><span class='menutext'>Menu ≣</span><span class='maintextmenu'>Main</span></a></li>			
 									<li class="sidebar-item"><a class='sidebar-button' href="#sidebar"><span class='sidetext'>Extra +</span><span class='maintextside'>Main</span></a></li>
 								</ul>
 							</span>	
