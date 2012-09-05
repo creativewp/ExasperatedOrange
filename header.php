@@ -98,7 +98,42 @@ jQuery(function () {
     <meta http-equiv="content-type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
  
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
- 
+
+    <!-- IE8 specific stuff makes the site work in IE8, but not in an "Off-Canvas" manner - put this in a separate CSS file? -->
+    <!--[if IE 8]>
+    <style type="text/css">
+.site-title {
+text-align: center;
+font-size: 100px;
+margin-bottom: -.2em;
+padding: 0;
+}
+.site-title img {width: 300px;}
+.off-canvas-navigation {display: none;}
+	.js [role="navigation"] {
+width: 19%;
+margin-left: 0;
+float: left;
+padding: 3%;
+background: #222;
+}
+.js [role="main"] {
+width: 44%;
+padding: 3%;
+}
+.js [role="complementary"] {
+width: 19%;
+padding: 3%;
+margin-right: 0;
+float: right;
+background: #222;
+}
+	div.two-column {width: 69% !important;}
+	.site-footer {background: #222;}
+
+    </style>
+    <![endif]-->
+
     <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 
     <?php wp_head(); ?>

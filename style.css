@@ -45,7 +45,7 @@ a:hover {text-decoration: underline; color: #206fa1;}
 h1,h2 {font-weight: 900;}
 h1 {font-size: 24px; padding-bottom: 5%;}
 h2 {font-size: 18px;margin-bottom: 10px;}
-blockquote, p {font-size:1em;margin-bottom: 16px; line-height: 1.5em; color: #666;}
+blockquote, p {font-size:1em; margin-bottom: .5em; line-height: 1.5em; color: #666;}
 blockquote { padding: 0 5%; color: #888; font-style: italic; font-family: georgia, serf; border-left: 2px solid #ddd;}
 code { font-family: "Lucida Console" monospace, monospace; _font-family: 'Lucida Console', monospace; font-size: 15px; font-weight: 900; color: #4b9162; }
 strong { font-weight: 900; }
@@ -64,7 +64,7 @@ figcaption { text-align: center; }
 
 * #wpadminbar { /* fix it so that the WordPress Admin bar displays properly! */
   padding: 0;
-}
+} /* OK - so there are loads more bugs with the Admin bar!  Need to look a this again! */
 
 /* Layout */
 .container { width: 100%; overflow: hidden;}
@@ -124,19 +124,13 @@ clearfix:after { /* clearfix */
 	margin-left: 0;	
 	width: 80%;
 }
-.active-nav [role="main"]{
-	margin-right: -100%;
-}
+.active-nav [role="main"]{margin-right: -100%;}
 .active-nav [role="complementary"] {	
 	margin-right: -100%;
 	float: right;		
 }
-.active-sidebar [role="navigation"] {	
-	margin-left: -200%;
-}
-.active-sidebar [role="main"] {
-	margin-left: -90%;	
-}
+.active-sidebar [role="navigation"] {margin-left: -200%;}
+.active-sidebar [role="main"] {margin-left: -90%;}
 .active-sidebar [role="complementary"] {	
 	margin-left: 0;
 	width: 80%;	
@@ -155,16 +149,14 @@ clearfix:after { /* clearfix */
 	overflow: hidden;
 	display: block;
 	color: #fff;
-	white-space:nowrap;
+	white-space: nowrap;
 }
 .off-canvas-navigation ul li {
 	width: 20%;
 	display: block;
 	float: left;
 }
-.off-canvas-navigation ul li.sidebar-item {
-	float: right;
-}
+.off-canvas-navigation ul li.sidebar-item {float: right;}
 .menu-button, .sidebar-button {
 	padding: 1em 20%;
 	font-size: 14px;
@@ -175,8 +167,7 @@ clearfix:after { /* clearfix */
 	border-top-right-radius: 1em;
 	box-shadow: inset 0 20px 20px rgba(255,255,255,.1);		
 }
-.menu-button.active-button, .sidebar-button.active-button {
-}
+.menu-button.active-button, .sidebar-button.active-button {}
 a.menu-button:hover, a.sidebar-button:hover {
 	text-decoration: none;	
 	background: rgba(0,0,0,.35);
@@ -188,9 +179,8 @@ a.menu-button:hover, a.sidebar-button:hover {
 	border-top-right-radius: 0;	
 	background: rgba(0,0,0,.15);				
 }	
-.maintextmenu, .maintextside {
-	display:none;
-}
+.maintextmenu, .maintextside {display:none;}
+
 /* Site Menu */
 [role="navigation"] li {
 	list-style: none;
@@ -221,13 +211,8 @@ a.menu-button:hover, a.sidebar-button:hover {
 	background-size: 30px;
 }
 
-[role="main"] h1 {
-	text-align: center;	
-}
-
-[role="complementary"] {
-	margin-bottom: 15%;
-}
+[role="main"] h1 {text-align: center;}
+[role="complementary"] {margin-bottom: 5%;}
 [role="complementary"] li {
 	margin: 0;
 	display: block;	
@@ -241,12 +226,10 @@ a.menu-button:hover, a.sidebar-button:hover {
 	padding: .5em;
 	margin-bottom: .5em;
 }
-li.widget-container div p {
-color: #CCC;
-}
+li.widget-container div p {color: #CCC;}
 li.widget-container ul {
 	padding-left: 0;
-  display:block;
+	display:block;
 }
 [role="complementary"] li a {
 	margin: 0;
@@ -254,9 +237,22 @@ li.widget-container ul {
 	display: block;	
 }
 
-table#wp-calendar {
-	width: 100%;
+
+table#wp-calendar {width: 100%;}
+
+div.post {margin-bottom: 1.5em;}
+h2.entry-title {
+	font-size: 22px;
+	margin-bottom: 6px;
 }
+div.entry-meta {
+	font-size: 12px;
+	margin-bottom: 6px;
+}
+div.entry-utility {font-size: 12px;}
+[role="main"]  ol, [role="main"] ul {
+	margin-bottom: 6px;
+	padding-left: 2em;}
 
 /* Footer stuff */
 .site-footer {
@@ -264,7 +260,7 @@ table#wp-calendar {
 	padding: 25px 0;
 	clear: both;
 	margin: 0 auto;
-  max-width: 1140px;
+	max-width: 1140px;
 	background: rgba(0,0,0,.5);
 }
 .site-footer li {
@@ -288,12 +284,8 @@ table#wp-calendar {
 		float: right;
 		width: 20%;
 	}	
-	.menu-button {
-		display: none;
-	}
-	.sidebar-button {
-		border: none;			
-	}	
+	.menu-button {display: none;}
+	.sidebar-button {border: none;}	
 	.js [role="navigation"] {
 		width: 20%;	
 		margin-left: 0;
@@ -302,12 +294,8 @@ table#wp-calendar {
 		width: 60%;
 		float: left;
 	}
-	.js [role="complementary"] {
-		width: 20%;
-	}				
-	.active-sidebar [role="navigation"] {	
-		margin-left: -100%;
-	}
+	.js [role="complementary"] {width: 20%;}				
+	.active-sidebar [role="navigation"] {margin-left: -100%;}
 	.active-sidebar [role="main"] {
 		margin-left: 0;
 		width: 60%;
@@ -316,9 +304,7 @@ table#wp-calendar {
 		margin-right: -80%;
 		width: 20%;
 	}
-	[role="main"] h1 {
-		text-align: left;
-	}				
+	[role="main"] h1 {text-align: left;}				
 }
 
 
@@ -329,10 +315,7 @@ table#wp-calendar {
 		max-width: 1140px;
 		margin: 0 auto;
 	}
-	.off-canvas-navigation {
-		display: none;
-	}			
-	
+	.off-canvas-navigation {display: none;}				
 	.js [role="navigation"] {
 		width: 19%;	
 		margin-left: 0;
@@ -345,9 +328,7 @@ table#wp-calendar {
 		padding: 3%;		
 	}
  
-	div.two-column {
-		width:69% !important;
-	}
+	div.two-column {width:69% !important;}
 
 	.js [role="complementary"] {
 		width: 19%;	
@@ -355,7 +336,5 @@ table#wp-calendar {
 		margin-right: 0;
 		float: right;
 	}	
-	[role="main"] h1 {
-		text-align: center;
-	}				
+	[role="main"] h1 {text-align: center;}				
 }
