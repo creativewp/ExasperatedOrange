@@ -1,4 +1,5 @@
 <?php
+require_once ( get_template_directory() . '/theme-options.php' );
 add_filter('show_admin_bar', '__return_false');  
 register_nav_menu( 'Left Sidebar', 'Menu for the left sidebar' ); 
 add_theme_support( 'custom-background');
@@ -172,4 +173,5 @@ add_theme_support( 'custom-header', $header_args );
 
 	    return false;
 	} // end is_sidebar_active
+
 ?>
