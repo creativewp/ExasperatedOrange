@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="container" class="container">
+<div id="container">
  
 <?php get_sidebar('left'); ?>
     <div id="content" role="main">

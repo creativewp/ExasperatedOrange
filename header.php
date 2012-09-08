@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html id="doc" class="no-js">
 <head profile="http://gmpg.org/xfn/11">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0;">	
     <title><?php
         if ( is_single() ) { single_post_title(); }
         elseif ( is_home() || is_front_page() ) { bloginfo('name'); print ' | '; bloginfo('description'); get_page_number(); }
@@ -18,11 +20,11 @@
 	
 	<!-- This script section needs to go in to a theme.js file but for now it's here! -->
 			<script type="text/javascript">
-																																																																																																																																																																																																																																																																																																													jQuery(document).ready(function(){
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						if ($('#content').attr('class') === 'two-column'){
-		$('.sidebar-button').css('visibility', 'hidden');									
-	}
-																																																																																																																																																																																																																																																																																																													});																																																																																																																																																																																																																																																																																																													
+			jQuery(document).ready(function(){
+				if ($('#content').attr('class') === 'two-column'){
+					$('.sidebar-button').css('visibility', 'hidden');									
+				}
+			});	
 	var showSidebar = function() {
 											
 	$('body').removeClass("active-nav").toggleClass("active-sidebar");
@@ -77,7 +79,7 @@ jQuery(document).ready(function($) {
 			showSidebar();									
 		});							
 });
-																																																																																																																																																																																																																																																																																																													
+
 jQuery(function () {
     $('li.menu-item-type-custom a').click(function() {
         $(this).parent().children('ul').slideToggle();
@@ -136,22 +138,23 @@ background: #222;
 
     <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 
-    <?php wp_head(); ?>
 
     <?php
       $options = get_option('offcanvas_theme_options');
       if (($options['mobilebackground']) == "1") {
         echo '<style type="text/css"> @media all and (max-width: 600px) { ';
         if (($options['backgroundtype']) == "solid") {
-         echo "body {background-image: none !important;}";
+         echo "body.custom-background {background-image: none !important;}";
         } else {
           if (($options['imageurl']) != "") {
-            echo "body {background-image: url('" . $options['imageurl'] ."') !important;}";
+            echo "body.custom-background {background-image: url('" . $options['imageurl'] ."') !important;}";
           }
         }
         echo '}</style>';
       }
     ?>
+
+    <?php wp_head(); ?>
 
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="<?php printf( __( '%s latest posts', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php printf( __( '%s latest comments', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
@@ -159,7 +162,7 @@ background: #222;
 
 </head>
 <body id="page" <?php body_class(''); ?>>
-<div id="wrapper" class="hfeed">
+<div id="wrapper" class="hfeed container">
     <div id="header">
         <div id="masthead">
 					<hgroup>
@@ -184,14 +187,12 @@ background: #222;
 
             <div id="access">
 				<!--<div class="skip-link"><a href="#content" title="<?php _e( 'Skip to content', 'offcanvas-theme' ) ?>"><?php _e( 'Skip to content', 'offcanvas-theme' ) ?></a></div>-->
-																																																													
 							<span class="off-canvas-navigation">
 								<ul>
 									<li class="menu-item"><a class='menu-button' href="#menu"><span class='menutext'>Menu ≣</span><span class='maintextmenu'>Main</span></a></li>			
 									<li class="sidebar-item"><a class='sidebar-button' href="#sidebar"><span class='sidetext'>Extra +</span><span class='maintextside'>Main</span></a></li>
 								</ul>
 							</span>	
-																																																													
             </div><!-- #access -->
  			
         </div><!-- #masthead -->
