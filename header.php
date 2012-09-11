@@ -11,39 +11,50 @@
         elseif ( is_404() ) { bloginfo('name'); print ' | Not Found'; }
         else { bloginfo('name'); wp_title('|'); get_page_number(); }
     ?></title>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript">
-			var doc = document.getElementById('doc');
-			doc.removeAttribute('class', 'no-js');
-			doc.setAttribute('class', 'js');
-		</script>
+
+<!-- need to use "enqueuescript" to load this properly -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<!-- This script needs to stay here (I think...) -->
+<script type="text/javascript">
+  var doc = document.getElementById('doc');
+  doc.removeAttribute('class', 'no-js');
+  doc.setAttribute('class', 'js');
+</script>
 	
-	<!-- This script section needs to go in to a theme.js file but for now it's here! -->
-			<script type="text/javascript">
-			jQuery(document).ready(function(){
-				if ($('#content').attr('class') === 'two-column'){
-					$('.sidebar-button').css('visibility', 'hidden');									
-				}
-			});	
-	var showSidebar = function() {
-											
-	$('body').removeClass("active-nav").toggleClass("active-sidebar");
-	$('.menu-button').removeClass("active-button");					
-	$('.sidebar-button').toggleClass("active-button");
-	$('.sidetext').toggle();
-	$('.maintextside').toggle();
-	$('.menutext').show();
-	$('.maintextmenu').hide();
+<!-- This script section needs to go in to a theme.js file but for now it's here! -->
+<script type="text/javascript">
+// If we're using a two-column view, hide the "Extra" button
+jQuery(document).ready(function(){
+  if ($('#content').attr('class') === 'two-column'){
+    $('.sidebar-button').css('visibility', 'hidden');									
+  }
+});	
+
+// Show/Hide the Sidebar ("Extra") area
+var showSidebar = function() {
+  $('body').removeClass("active-nav").toggleClass("active-sidebar");
+  $('.menu-button').removeClass("active-button");					
+  $('.sidebar-button').toggleClass("active-button");
+
+  // Swap the labels to show "Main" as a link to get back to the central panel
+  $('.sidetext').toggle();
+  $('.maintextside').toggle();
+  $('.menutext').show();
+  $('.maintextmenu').hide();
 }
 
+// Show/Hide the Nav ("Menu") area
 var showMenu = function() {
-	$('body').removeClass("active-sidebar").toggleClass("active-nav");
-	$('.sidebar-button').removeClass("active-button");				
-	$('.menu-button').toggleClass("active-button");	
-	$('.menutext').toggle();
-	$('.maintextmenu').toggle();
-	$('.sidetext').show();
-	$('.maintextside').hide();
+  $('body').removeClass("active-sidebar").toggleClass("active-nav");
+  $('.sidebar-button').removeClass("active-button");				
+  $('.menu-button').toggleClass("active-button");	
+
+  // Swap the labels to show "Main" as a link to get back to the central panel
+  $('.menutext').toggle();
+  $('.maintextmenu').toggle();
+  $('.sidetext').show();
+  $('.maintextside').hide();
 }
 
 // add/remove classes everytime the window resize event fires
@@ -79,6 +90,26 @@ jQuery(document).ready(function($) {
 			showSidebar();									
 		});							
 });
+
+// When clicking on A tags in the central panel, go to the HREF location and don't do anything else! (blocks the function below)
+jQuery(function () { 
+  $('div#content a').click(function() { 
+    event.stopPropagation();
+  });
+});
+
+// Can click _*ANYWHERE*_ (apart from A tags) on the little strip of central panel that remains visible
+// to bring that back when in "Menu" or "Extra" views
+jQuery(function () { 
+    $('div#content').click(function() { 
+      $('body').removeClass("active-nav").removeClass("active-sidebar");
+      $('.menutext').show();
+      $('.maintextmenu').hide();
+      $('.sidetext').show();
+      $('.maintextside').hide();
+    });
+});
+
 
 jQuery(function () {
     $('li.menu-item-type-custom a').click(function() {

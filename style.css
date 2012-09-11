@@ -308,7 +308,7 @@ div.entry-utility {font-size: 12px;}
 }
 
 
-@media all and (min-width: 800px) {
+@media all and (min-width: 1000px) {
 	.site-title {text-align: center; font-size: 100px; margin-bottom: -.2em; padding: 0;}
 	.site-title img { width: 300px;}	
 	.container {
