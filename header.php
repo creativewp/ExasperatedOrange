@@ -169,23 +169,59 @@ background: #222;
 
     <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 
+    <?php wp_head(); ?>
 
     <?php
-      $options = get_option('offcanvas_theme_options');
-      if (($options['mobilebackground']) == "1") {
-        echo '<style type="text/css"> @media all and (max-width: 600px) { ';
-        if (($options['backgroundtype']) == "solid") {
-         echo "body.custom-background {background-image: none !important;}";
+      $options = get_option('theme_offcanvas_options');
+      if (($options['enable_mobile_background']) == "1") {
+        echo '<style type="text/css"> @media all and (max-width: 599px) { ';
+        if (($options['mobile_background_type']) == "solid") {
+         echo "body {background-image: none !important;}";
         } else {
-          if (($options['imageurl']) != "") {
-            echo "body.custom-background {background-image: url('" . $options['imageurl'] ."') !important;}";
+          if (($options['mobile_background_img']) != "") {
+            echo "body {background-image: url('" . $options['mobile_background_img'] ."') !important; ";
+          
+            switch ($options['mobile_background_position']) {
+              case "left":
+               echo "background-position: top left !important; ";
+               break;
+             case "center":
+               echo "background-position: top center !important; ";
+               break;
+             case "right":
+               echo "background-position: top right !important; ";
+               break;
+            }
+
+            switch ($options['mobile_background_repeat']) {
+              case "no":
+               echo "background-repeat: no-repeat !important; ";
+               break;
+              case "tile":
+               echo "background-repeat: repeat !important; ";
+               break;
+              case "horiz":
+               echo "background-repeat: repeat-x !important; ";
+               break;
+              case "vert":
+               echo "background-repeat: repeat-y !important; ";
+               break;
+            }
+
+            switch ($options['mobile_background_attach']) {
+              case "scroll":
+               echo "background-attachment: scroll !important; ";
+               break;
+              case "fixed":
+               echo "background-attachment: fixed !important; ";
+               break;
+            }
+            echo "}";
           }
         }
         echo '}</style>';
       }
     ?>
-
-    <?php wp_head(); ?>
 
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="<?php printf( __( '%s latest posts', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php printf( __( '%s latest comments', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
