@@ -39,7 +39,7 @@ audio:not([controls]) { display: none; }
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 ::-moz-selection { background: #ff0; color: #000; text-shadow: none; }
 ::selection { background: #ff0; color: #000; text-shadow: none; }
-body { color: #333; color: rgba(0,0,0,.7); background: #99a1a5; margin-top: .5em; }
+body { color: #333; color: rgba(0,0,0,.7); background: #666699; margin-top: .5em; }
 a {text-decoration: none; color: #247eb7;}
 a:hover {text-decoration: underline; color: #206fa1;}
 h1,h2 {font-weight: 900;}
@@ -54,9 +54,9 @@ strong { font-weight: 900; }
 .site-title a:hover { color: #fff; }
 .site-title img { width: 180px;}	
 img {max-width: 80%; height: auto;}
-[role="navigation"] a,
+[role="mainnavigation"] a,
 [role="complementary"] a {text-decoration: none; color: #ccc; font-weight: 900; }
-[role="navigation"] a:hover,
+[role="mainnavigation"] a:hover,
 [role="complementary"] a:hover { color: #fff; }
 [role="complementary"] h1 { color: #bbb; }
 figure { margin: 10% 0; }
@@ -90,7 +90,7 @@ clearfix:after { /* clearfix */
 	left: 100%;
 	background: rgba(0,0,0,.15);	
 }
-[role="navigation"], [role="main"], [role="complementary"] {
+[role="mainnavigation"], [role="main"], [role="complementary"] {
 	-webkit-transition: .2s all ease;
 	-moz-transition: .2s all ease;
 	-o-transition: .2s all ease;		
@@ -101,7 +101,7 @@ clearfix:after { /* clearfix */
 	display: block;	
 	position: relative;
 }
-.js [role="navigation"] {	
+.js [role="mainnavigation"] {	
 	margin-left: -100%;
 	float: left;
 	padding-bottom: 25em;
@@ -120,7 +120,7 @@ clearfix:after { /* clearfix */
 	float: left;
 	z-index: 2;			
 }	
-.active-nav [role="navigation"] {	
+.active-nav [role="mainnavigation"] {	
 	margin-left: 0;	
 	width: 80%;
 }
@@ -129,7 +129,7 @@ clearfix:after { /* clearfix */
 	margin-right: -100%;
 	float: right;		
 }
-.active-sidebar [role="navigation"] {margin-left: -200%;}
+.active-sidebar [role="mainnavigation"] {margin-left: -200%;}
 .active-sidebar [role="main"] {margin-left: -90%;}
 .active-sidebar [role="complementary"] {	
 	margin-left: 0;
@@ -182,31 +182,31 @@ a.menu-button:hover, a.sidebar-button:hover {
 .maintextmenu, .maintextside {display:none;}
 
 /* Site Menu */
-[role="navigation"] li {
+[role="mainnavigation"] li {
 	list-style: none;
 	font-size: 18px;
 	margin-bottom: .5em;
 }
-[role="navigation"] li ul {
+[role="mainnavigation"] li ul {
 	padding-left: 25px;
 	padding-top: 0.5em;
 	display: none;
 }
-[role="navigation"] li a {
+[role="mainnavigation"] li a {
 	display: block;
 	background: rgba(0,0,0,.1);
 	padding: .8em;
 	border-radius: 4px;
 }
-[role="navigation"] li a:hover, [role="navigation"] li a:active, [role="navigation"] li a:focus {
+[role="mainnavigation"] li a:hover, [role="mainnavigation"] li a:active, [role="mainnavigation"] li a:focus {
 	background: rgba(0,0,0,.2);
 	text-decoration: none;
 }
-[role="navigation"] li.current a {
+[role="mainnavigation"] li.current a {
 	background: rgba(0,0,0,.2);
 	color: #fff;
 }
-[role="navigation"] li.menu-item-type-custom {
+[role="mainnavigation"] li.menu-item-type-custom {
 	background: url(img/downarrow.png) no-repeat right top;
 	background-size: 30px;
 }
@@ -218,7 +218,7 @@ a.menu-button:hover, a.sidebar-button:hover {
 	display: block;	
 }
 
-[role="navigation"] li.widget-container , [role="complementary"] li.widget-container {
+[role="mainnavigation"] li.widget-container , [role="complementary"] li.widget-container {
 	list-style: none;
 	background: rgba(0,0,0,.3);
 
@@ -286,7 +286,7 @@ div.entry-utility {font-size: 12px;}
 	}	
 	.menu-button {display: none;}
 	.sidebar-button {border: none;}	
-	.js [role="navigation"] {
+	.js [role="mainnavigation"] {
 		width: 20%;	
 		margin-left: 0;
 	}
@@ -295,7 +295,7 @@ div.entry-utility {font-size: 12px;}
 		float: left;
 	}
 	.js [role="complementary"] {width: 20%;}				
-	.active-sidebar [role="navigation"] {margin-left: -100%;}
+	.active-sidebar [role="mainnavigation"] {margin-left: -100%;}
 	.active-sidebar [role="main"] {
 		margin-left: 0;
 		width: 60%;
@@ -316,7 +316,7 @@ div.entry-utility {font-size: 12px;}
 		margin: 0 auto;
 	}
 	.off-canvas-navigation {display: none;}				
-	.js [role="navigation"] {
+	.js [role="mainnavigation"] {
 		width: 19%;	
 		margin-left: 0;
 		float: left;

@@ -1,4 +1,4 @@
-        <div id="menu" class="widget-area" role="navigation">
+        <div id="menu" class="widget-area" role="mainnavigation">
             <ul class="xoxo">
 						  <!-- Place the menu on the left sidebar automatically! -->
 						  <?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'container_class' => 'menu-header' ) ); ?>

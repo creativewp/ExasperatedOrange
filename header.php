@@ -143,7 +143,7 @@ padding: 0;
 }
 .site-title img {width: 300px;}
 .off-canvas-navigation {display: none;}
-	.js [role="navigation"] {
+	.js [role="mainnavigation"] {
 width: 19%;
 margin-left: 0;
 float: left;
