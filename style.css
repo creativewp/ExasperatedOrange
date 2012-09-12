@@ -64,7 +64,8 @@ figcaption { text-align: center; }
 
 * #wpadminbar { /* fix it so that the WordPress Admin bar displays properly! */
   padding: 0;
-} /* OK - so there are loads more bugs with the Admin bar!  Need to look a this again! */
+  min-width: 800px !important;
+} 
 
 /* Layout */
 .container { width: 100%; overflow: hidden;}
