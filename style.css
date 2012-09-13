@@ -68,7 +68,8 @@ figcaption { text-align: center; }
 } 
 
 /* Layout */
-.container { width: 100%; overflow: hidden;}
+.container, #container { width: 100%; overflow: hidden;}
+
 clearfix:after { /* clearfix */
 	visibility: hidden;
 	display: block;
@@ -113,8 +114,9 @@ clearfix:after { /* clearfix */
 	background: #eee;
 	box-shadow: 0 0 25px rgba(0,0,0,.2);
 	float: left;
-        min-height: 800px;
 	position: relative;
+	margin-bottom: -100%;
+	padding-bottom: 100%;	
 }
 .js [role="complementary"] {	
 	margin-right: -200%;
@@ -213,7 +215,7 @@ a.menu-button:hover, a.sidebar-button:hover {
 }
 
 [role="main"] h1 {text-align: center;}
-[role="complementary"] {margin-bottom: 5%;}
+[role="complementary"] {margin-bottom: 0;}
 [role="complementary"] li {
 	margin: 0;
 	display: block;	
@@ -294,6 +296,8 @@ div.entry-utility {font-size: 12px;}
 	.js [role="main"] {
 		width: 60%;
 		float: left;
+		margin-bottom: -100%;
+		padding-bottom: 100%;
 	}
 	.js [role="complementary"] {width: 20%;}				
 	.active-sidebar [role="mainnavigation"] {margin-left: -100%;}
@@ -326,7 +330,9 @@ div.entry-utility {font-size: 12px;}
 
 	.js [role="main"] {
 		width: 44%;
-		padding: 3%;		
+		padding: 3%;
+		margin-bottom: -100%;
+		padding-bottom: 100%;		
 	}
  
 	div.two-column {width:69% !important;}
