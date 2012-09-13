@@ -25,6 +25,50 @@ load_theme_textdomain( 'offcanvas-theme', TEMPLATEPATH . '/languages' );
 	
 add_theme_support( 'menus' );
 
+add_action ('admin_menu', 'themedemo_admin');
+
+function themedemo_admin() {
+  // add the Customize link to the admin menu
+  add_theme_page( 'Customize', 'Customize', 'edit_theme_options', 'customize.php' );
+}
+
+add_action( 'customize_register', 'offcanvas_customize_register' );
+function offcanvas_customize_register($wp_customize) {
+
+ // Title Color (added to Color Scheme section in Theme Customizer)
+  $wp_customize->add_setting( 'offcanvas_title_color', array(
+   // 'default'           => '#000',
+    'type'              => 'theme_mod',
+    'sanitize_callback' => 'sanitize_hex_color',
+  
+  ) );
+
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title_color', array(
+  'label'    => __( 'Title Color', 'offcanvas' ),
+  'section'  => 'colors',
+  'settings' => 'offcanvas_title_color',
+  ) ) );
+
+  // Link Color (added to Color Scheme section in Theme Customizer)
+  $wp_customize->add_setting( 'offcanvas_link_color', array(
+   // 'default'           => '#000',
+    'type'              => 'theme_mod',
+    'sanitize_callback' => 'sanitize_hex_color',
+  
+  ) );
+
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
+  'label'    => __( 'Link Color', 'offcanvas' ),
+  'section'  => 'colors',
+  'settings' => 'offcanvas_link_color',
+  ) ) );
+
+
+
+
+
+}
+
 $locale = get_locale();
 $locale_file = TEMPLATEPATH . "/languages/$locale.php";
 if ( is_readable($locale_file) )

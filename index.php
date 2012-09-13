@@ -3,7 +3,7 @@
  
 <?php get_sidebar('left'); ?>
     <div id="content" role="main">
-									
+					
 		<?php /* Top post navigation */ ?>
 		<?php global $wp_query; $total_pages = $wp_query->max_num_pages; if ( $total_pages > 1 ) { ?>
 

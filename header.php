@@ -221,8 +221,18 @@ background: #222;
         }
         echo '}</style>';
       }
-    ?>
 
+// Apply Theme Mods (from the Customizer)
+echo '<style type="text/css">';
+if (get_theme_mod( 'offcanvas_link_color')) echo ' #content a { color:' .get_theme_mod( 'offcanvas_link_color' ).';}';
+
+if (get_theme_mod( 'offcanvas_title_color')) echo ' .site-title, .site-title a, .site-title a:hover  { color:' .get_theme_mod( 'offcanvas_title_color', '' ).';}';
+
+
+echo '</style>';
+// Uncomment this to remove theme mods!
+//remove_theme_mods();
+    ?>
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="<?php printf( __( '%s latest posts', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php printf( __( '%s latest comments', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
