@@ -1,6 +1,6 @@
 /*  
 Theme Name: Off Canvas
-Theme URI: http://dev/null
+Theme URI: http://www.philcooling.co.uk/offcanvas
 Description: Responsive theme which adapts according to screen size
 Version: 0.01
 Author: Phil Cooling
@@ -39,7 +39,7 @@ audio:not([controls]) { display: none; }
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 ::-moz-selection { background: #ff0; color: #000; text-shadow: none; }
 ::selection { background: #ff0; color: #000; text-shadow: none; }
-body { color: #333; color: rgba(0,0,0,.7); background: #666699; margin-top: .5em; }
+body { color: #333; color: rgba(0,0,0,.7); background: #fff; margin-top: .5em; }
 a {text-decoration: none; color: #247eb7;}
 a:hover {text-decoration: underline; color: #206fa1;}
 h1,h2 {font-weight: 900;}
@@ -49,9 +49,9 @@ blockquote, p {font-size:1em; margin-bottom: .5em; line-height: 1.5em; color: #6
 blockquote { padding: 0 5%; color: #888; font-style: italic; font-family: georgia, serf; border-left: 2px solid #ddd;}
 code { font-family: "Lucida Console" monospace, monospace; _font-family: 'Lucida Console', monospace; font-size: 15px; font-weight: 900; color: #4b9162; }
 strong { font-weight: 900; }
-.site-title { color: #fff; font-size: 34px;text-align: center;padding: 3% 5% 5%; margin-bottom: -1.8em; letter-spacing: -.05em;}
-.site-title a { color: #eee; }
-.site-title a:hover { color: #fff; }
+.site-title { color: #222; font-size: 34px;text-align: center;padding: 3% 5% 5%; margin-bottom: -1.8em; letter-spacing: -.05em;}
+.site-title a { color: #222; }
+.site-title a:hover { color: #bbb; }
 .site-title img { width: 180px;}	
 img {max-width: 80%; height: auto;}
 [role="mainnavigation"] a,
@@ -61,6 +61,8 @@ img {max-width: 80%; height: auto;}
 [role="complementary"] h1 { color: #bbb; }
 figure { margin: 10% 0; }
 figcaption { text-align: center; }
+.right, .alignright {float: right;}
+.left, .alignleft {float: left;}
 
 * #wpadminbar { /* fix it so that the WordPress Admin bar displays properly! */
   padding: 0;
@@ -281,7 +283,7 @@ div.entry-utility {font-size: 12px;}
 @media all and (min-width: 600px) {
 	pre { margin: 0 0 0 10% }
 	body { margin-top: 0; box-shadow: inset 0 0 50px rgba(255,255,255,.4); }	
-	.site-title { text-align: left; margin-bottom: -0.9em; font-size: 60px; padding: 1% 0 0 30%;}
+	.site-title { text-align: left; margin-bottom: -0.8em; font-size: 60px; padding: 1% 0 0 30%;}
 	.site-title img { width: 240px;}		
 	.off-canvas-navigation ul li {
 		float: right;
@@ -314,12 +316,9 @@ div.entry-utility {font-size: 12px;}
 
 
 @media all and (min-width: 1000px) {
-	.site-title {text-align: center; font-size: 100px; margin-bottom: -.2em; padding: 0;}
+	.site-title {text-align: center; font-size: 100px; margin-bottom: -.1em; padding: 0;}
 	.site-title img { width: 300px;}	
-	.container {
-		max-width: 1140px;
-		margin: 0 auto;
-	}
+	.container {max-width: 1140px; margin: 0 auto;}
 	.off-canvas-navigation {display: none;}				
 	.js [role="mainnavigation"] {
 		width: 19%;	

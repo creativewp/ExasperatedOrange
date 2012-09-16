@@ -16,6 +16,16 @@ add_action('init', 'theme_widgets_init' );
 add_action('admin_menu', 'offcanvas_admin');
 add_action('customize_register', 'offcanvas_customize_register' );
 
+$preset_widgets = array (
+ 'left_sidebar_widget_area'  => array( 'search', 'meta' ),
+ 'right_sidebar_widget_area'  => array( 'links', 'pages', 'categories', 'archives' )
+);
+
+if ( isset( $_GET['activated'] ) ) {
+  update_option( 'sidebars_widgets', $preset_widgets );
+}
+// update_option( 'sidebars_widgets', NULL );
+
 // Make theme available for translation
 // Translations can be filed in the /languages/ directory
 load_theme_textdomain( 'offcanvas-theme', TEMPLATEPATH . '/languages' );
@@ -29,6 +39,7 @@ if ( is_readable($locale_file) )
 
 
 
+
 // Function to load scripts...
 function load_scripts() {
   //$path = get_bloginfo('template_directory');
@@ -36,20 +47,21 @@ function load_scripts() {
   //wp_enqueue_script('theme_javascript',  $path . '/theme.js', array('jquery'));
 }
 
+
 // Add things to the Admin Menu
 function offcanvas_admin() {
   // add the Customize link to the admin menu
   add_theme_page( 'Customize', 'Customize', 'edit_theme_options', 'customize.php' );
 }
 
+
 //  Add options to the Customizer screen
 function offcanvas_customize_register($wp_customize) {
- // Title Color (added to Color Scheme section in Theme Customizer)
+  // Title Color (added to Color Scheme section in Theme Customizer)
   $wp_customize->add_setting( 'offcanvas_title_color', array(
    // 'default'           => '#000',
     'type'              => 'theme_mod',
     'sanitize_callback' => 'sanitize_hex_color',
-  
   ) );
 
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title_color', array(
@@ -63,7 +75,6 @@ function offcanvas_customize_register($wp_customize) {
    // 'default'           => '#000',
     'type'              => 'theme_mod',
     'sanitize_callback' => 'sanitize_hex_color',
-  
   ) );
 
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
@@ -98,27 +109,16 @@ function theme_widgets_init() {
 } // end theme_widgets_init
 
 
-	
-	$preset_widgets = array (
-	    'left_sidebar_widget_area'  => array( 'search', 'meta' ),
-	    'right_sidebar_widget_area'  => array( 'links', 'pages', 'categories', 'archives' )
-	);
-	if ( isset( $_GET['activated'] ) ) {
-	    update_option( 'sidebars_widgets', $preset_widgets );
-	}
-	// update_option( 'sidebars_widgets', NULL );
-	
-	// Check for static widgets in widget-ready areas
-	function is_sidebar_active( $index ){
-	  global $wp_registered_sidebars;
+// Check for static widgets in widget-ready areas
+function is_sidebar_active( $index ){
+  global $wp_registered_sidebars;
 
-	  $widgetcolums = wp_get_sidebars_widgets();
+  $widgetcolums = wp_get_sidebars_widgets();
 
-	  if ($widgetcolums[$index]) return true;
+  if ($widgetcolums[$index]) return true;
 
-	    return false;
-	} // end is_sidebar_active
-
+  return false;
+} // end is_sidebar_active
 
 
 // Get the page number

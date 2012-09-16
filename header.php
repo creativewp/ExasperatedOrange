@@ -230,7 +230,7 @@ if (get_theme_mod( 'offcanvas_title_color')) echo ' .site-title, .site-title a, 
 
 
 echo '</style>';
-// Uncomment this to remove theme mods!
+// Uncomment this to remove theme mods! (need to find a better way to do this!)
 //remove_theme_mods();
     ?>
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="<?php printf( __( '%s latest posts', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
@@ -266,7 +266,7 @@ echo '</style>';
 				<!--<div class="skip-link"><a href="#content" title="<?php _e( 'Skip to content', 'offcanvas-theme' ) ?>"><?php _e( 'Skip to content', 'offcanvas-theme' ) ?></a></div>-->
 							<span class="off-canvas-navigation">
 								<ul>
-									<li class="menu-item"><a class='menu-button' href="#menu"><span class='menutext'>Menu ≣</span><span class='maintextmenu'>Main</span></a></li>			
+									<li class="menu-item"><a class='menu-button' href="#menu"><span class='menutext'>Menu &#x2630;</span><span class='maintextmenu'>Main</span></a></li>			
 									<li class="sidebar-item"><a class='sidebar-button' href="#sidebar"><span class='sidetext'>Extra +</span><span class='maintextside'>Main</span></a></li>
 								</ul>
 							</span>	
