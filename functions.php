@@ -1,4 +1,5 @@
 <?php
+if ( ! isset( $content_width ) ) $content_width = 500;
 require_once ( get_template_directory() . '/theme-options.php' );
 register_nav_menu( 'Left Sidebar', 'Menu for the left sidebar' ); 
 
@@ -10,11 +11,16 @@ $header_args = array(
 add_theme_support( 'custom-header', $header_args );
 add_theme_support( 'custom-background');
 add_theme_support( 'menus' );
+add_theme_support( 'post-thumbnails' );
+add_theme_support( 'automatic-feed-links' );
 
 add_action('init', 'load_scripts');
 add_action('init', 'theme_widgets_init' );
 add_action('admin_menu', 'offcanvas_admin');
 add_action('customize_register', 'offcanvas_customize_register' );
+
+// This theme styles the visual editor with editor-style.css to match the theme style.
+add_editor_style();
 
 $preset_widgets = array (
  'left_sidebar_widget_area'  => array( 'search', 'meta' ),
@@ -28,9 +34,9 @@ if ( isset( $_GET['activated'] ) ) {
 
 // Make theme available for translation
 // Translations can be filed in the /languages/ directory
-load_theme_textdomain( 'offcanvas-theme', TEMPLATEPATH . '/languages' );
+load_theme_textdomain( 'offcanvas-theme', get_template_directory() . '/languages' );
 $locale = get_locale();
-$locale_file = TEMPLATEPATH . "/languages/$locale.php";
+$locale_file = get_template_directory() . "/languages/$locale.php";
 if ( is_readable($locale_file) )
   require_once($locale_file);
 
@@ -222,5 +228,49 @@ function get_page_number() {
 	    return trim(join( $glue, $tags ));
 	} // end tag_ur_it
 	
+/**
+ * Comment layout ("Borrowed" from TwentyTen) ;)
+ */
+function offcanvas_comment( $comment, $args, $depth ) {
+
+   $GLOBALS['comment'] = $comment;
+   switch ( $comment->comment_type ) :
+		case '' :
+	?>
+   
+   <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+   
+     <div id="comment-<?php comment_ID(); ?>" class="comment-body">
+   
+      <div class="comment-author vcard">
+   
+		<?php echo get_avatar( $comment, 52 ); ?>
+   
+		<?php printf(__('<h5><cite class="fn">%s</cite> <span class="says">says:</span></h5>'), get_comment_author_link()) ?>
+		<p class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( __( '%1$s at %2$s', 'offcanvas-theme' ), get_comment_date(),  get_comment_time() ) ?></a><?php edit_comment_link( __( '(Edit)' , 'offcanvas-theme'),'   ','') ?> / <span><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args[ 'max_depth' ] ) ) ) ?></span></p>   
+      </div>
+   
+      <?php if ($comment->comment_approved == '0') : ?>
+   
+         <em><?php _e( 'Your comment is awaiting moderation.' , 'offcanvas-theme') ?></em>
+   
+         <br />
+   
+      <?php endif; ?>
+
+      <?php comment_text() ?>
+   
+     </div>
+<?php
+			break;
+		case 'pingback'  :
+		case 'trackback' :
+	?>
+	<li class="post pingback">
+		<p><?php _e( 'Pingback:', TCB_TEXT_DOMAIN ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', TCB_TEXT_DOMAIN ), ' ' ); ?></p>
+	<?php
+			break;
+	endswitch;
+}
 	
 ?>

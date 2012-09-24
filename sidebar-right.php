@@ -4,4 +4,5 @@
                 <?php dynamic_sidebar('right_sidebar_widget_area'); ?>
             </ul>
         </div><!-- #right #sidebar .widget-area -->
+
 <?php endif; ?>

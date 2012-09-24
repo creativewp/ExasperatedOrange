@@ -60,7 +60,7 @@ function offcanvas_admin_options_page() {
 	?>
 	<div class="wrap">
 
-		<?php screen_icon(); echo "<h2>" . get_current_theme() . __( ' Theme Options', 'offcanvastheme' ) . "</h2>"; ?>		
+		<?php screen_icon(); echo "<h2>" . wp_get_theme() . __( ' Theme Options', 'offcanvastheme' ) . "</h2>"; ?>		
 
 		<!-- If we have any error by submiting the form, they will appear here -->
 		<?php settings_errors( 'offcanvas-settings-errors' ); ?>

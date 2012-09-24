@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="doc" class="no-js">
+<html id="doc" class="no-js" <?php language_attributes(); ?>>
 <head profile="http://gmpg.org/xfn/11">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0;">	
@@ -7,7 +7,7 @@
         if ( is_single() ) { single_post_title(); }
         elseif ( is_home() || is_front_page() ) { bloginfo('name'); print ' | '; bloginfo('description'); get_page_number(); }
         elseif ( is_page() ) { single_post_title(''); }
-        elseif ( is_search() ) { bloginfo('name'); print ' | Search results for ' . wp_specialchars($s); get_page_number(); }
+        elseif ( is_search() ) { bloginfo('name'); print ' | Search results for ' . esc_html($s); get_page_number(); }
         elseif ( is_404() ) { bloginfo('name'); print ' | Not Found'; }
         else { bloginfo('name'); wp_title('|'); get_page_number(); }
     ?></title>
@@ -233,8 +233,8 @@ echo '</style>';
 // Uncomment this to remove theme mods! (need to find a better way to do this!)
 //remove_theme_mods();
     ?>
-    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="<?php printf( __( '%s latest posts', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
-    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php printf( __( '%s latest comments', 'offcanvas-theme' ), wp_specialchars( get_bloginfo('name'), 1 ) ); ?>" />
+    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="<?php printf( __( '%s latest posts', 'offcanvas-theme' ), esc_html( get_bloginfo('name'), 1 ) ); ?>" />
+    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php printf( __( '%s latest comments', 'offcanvas-theme' ), esc_html( get_bloginfo('name'), 1 ) ); ?>" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 </head>
@@ -246,7 +246,7 @@ echo '</style>';
 					<?php if ( get_header_image() != '' ) : ?>
                
         <div id="logo" class="site-title">
-            <a href="<?php echo home_url('/'); ?>"><img src="<?php header_image(); ?>" width="<?php if(function_exists('get_custom_header')) { echo get_custom_header() -> width;} else { echo HEADER_IMAGE_WIDTH;} ?>" height="<?php if(function_exists('get_custom_header')) { echo get_custom_header() -> height;} else { echo HEADER_IMAGE_HEIGHT;} ?>" alt="<?php bloginfo('name'); ?>" /></a>
+            <a href="<?php echo home_url('/'); ?>"><img src="<?php header_image(); ?>"  alt="<?php bloginfo('name'); ?>" /></a>
         </div><!-- end of #logo -->
         
     <?php endif; // header image was removed ?>

@@ -5,6 +5,9 @@ Description: Responsive theme which adapts according to screen size
 Version: 0.01
 Author: Phil Cooling
 Author URI: http://www.philcooling.co.uk/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:two-columns, three-columns, left-sidebar, right-sidebar, flexible-width, custom-background, custom-colors, custom-header, custom-menu, editor-style, theme-options, threaded-comments
 */
 
 
@@ -52,8 +55,8 @@ strong { font-weight: 900; }
 .site-title { color: #222; font-size: 34px;text-align: center;padding: 3% 5% 5%; margin-bottom: -1.8em; letter-spacing: -.05em;}
 .site-title a { color: #222; }
 .site-title a:hover { color: #bbb; }
-.site-title img { width: 180px;}	
-img {max-width: 80%; height: auto;}
+.site-title img { width: 180px; padding-top: 1%;}	
+/*img {max-width: 80%; height: auto;}*/
 [role="mainnavigation"] a,
 [role="complementary"] a {text-decoration: none; color: #ccc; font-weight: 900; }
 [role="mainnavigation"] a:hover,
@@ -61,17 +64,105 @@ img {max-width: 80%; height: auto;}
 [role="complementary"] h1 { color: #bbb; }
 figure { margin: 10% 0; }
 figcaption { text-align: center; }
-.right, .alignright {float: right;}
-.left, .alignleft {float: left;}
+
+/* Alignment */
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.625em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.625em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 * #wpadminbar { /* fix it so that the WordPress Admin bar displays properly! */
   padding: 0;
   min-width: 800px !important;
 } 
 
+p img,
+.wp-caption {
+	margin-top: 0.4em;
+}
+.wp-caption {
+	background: #eee;
+	margin-bottom: 1.625em;
+	max-width: 96%;
+	padding: 9px;
+}
+.wp-caption img {
+	display: block;
+	margin: 0 auto;
+	max-width: 98%;
+}
+.wp-caption .wp-caption-text,
+.gallery-caption {
+	color: #666;
+	font-family: Georgia, serif;
+	font-size: 12px;
+}
+.wp-caption .wp-caption-text {
+	margin-bottom: 0.6em;
+	padding: 10px 0 5px 40px;
+	position: relative;
+}
+.wp-caption .wp-caption-text:before {
+	color: #666;
+	content: '\2014';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	margin-right: 5px;
+	position: absolute;
+	left: 10px;
+	top: 7px;
+}
+.blog .sticky .entry-header .entry-meta {
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+/* Post author highlighting */
+.commentlist > li.bypostauthor {
+	background: #ddd;
+	border-color: #d3d3d3;
+}
+.commentlist > li.bypostauthor .comment-meta {
+	color: #575757;
+}
+.commentlist > li.bypostauthor .comment-meta a:focus,
+.commentlist > li.bypostauthor .comment-meta a:active,
+.commentlist > li.bypostauthor .comment-meta a:hover {
+}
+.commentlist > li.bypostauthor:before {
+	content: url(images/comment-arrow-bypostauthor.png);
+}
+
+/* Post Author threaded comments */
+.commentlist .children > li.bypostauthor {
+	background: #ddd;
+	border-color: #d3d3d3;
+}
+
+ /* Image Attachments */
+.post img.attachment-post-thumbnail {
+  float: left; 
+  margin: 0px 10px 10px 0;
+  max-width: 100px;
+  max-height: 100px;
+}
+
 /* Layout */
 .container, #container { width: 100%; overflow: hidden;}
-
+#main {background: rgba(0,0,0,.3);}
 clearfix:after { /* clearfix */
 	visibility: hidden;
 	display: block;
@@ -88,11 +179,9 @@ clearfix:after { /* clearfix */
 	left: -100%;
 	width: 100%;
 	height: 100%;
-	background: rgba(0,0,0,.3);	
 }
 [role="main"]:after {
 	left: 100%;
-	background: rgba(0,0,0,.15);	
 }
 [role="mainnavigation"], [role="main"], [role="complementary"] {
 	-webkit-transition: .2s all ease;
@@ -117,8 +206,6 @@ clearfix:after { /* clearfix */
 	box-shadow: 0 0 25px rgba(0,0,0,.2);
 	float: left;
 	position: relative;
-	margin-bottom: -100%;
-	padding-bottom: 100%;	
 }
 .js [role="complementary"] {	
 	margin-right: -200%;
@@ -284,7 +371,7 @@ div.entry-utility {font-size: 12px;}
 	pre { margin: 0 0 0 10% }
 	body { margin-top: 0; box-shadow: inset 0 0 50px rgba(255,255,255,.4); }	
 	.site-title { text-align: left; margin-bottom: -0.8em; font-size: 60px; padding: 1% 0 0 30%;}
-	.site-title img { width: 240px;}		
+	.site-title img { width: 240px; padding-top: 1%;}		
 	.off-canvas-navigation ul li {
 		float: right;
 		width: 20%;
@@ -298,8 +385,6 @@ div.entry-utility {font-size: 12px;}
 	.js [role="main"] {
 		width: 60%;
 		float: left;
-		margin-bottom: -100%;
-		padding-bottom: 100%;
 	}
 	.js [role="complementary"] {width: 20%;}				
 	.active-sidebar [role="mainnavigation"] {margin-left: -100%;}
@@ -317,7 +402,7 @@ div.entry-utility {font-size: 12px;}
 
 @media all and (min-width: 1000px) {
 	.site-title {text-align: center; font-size: 100px; margin-bottom: -.1em; padding: 0;}
-	.site-title img { width: 300px;}	
+	.site-title img { width: 300px; padding-top: 1%;}	
 	.container {max-width: 1140px; margin: 0 auto;}
 	.off-canvas-navigation {display: none;}				
 	.js [role="mainnavigation"] {
@@ -330,8 +415,6 @@ div.entry-utility {font-size: 12px;}
 	.js [role="main"] {
 		width: 44%;
 		padding: 3%;
-		margin-bottom: -100%;
-		padding-bottom: 100%;		
 	}
  
 	div.two-column {width:69% !important;}
