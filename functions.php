@@ -14,13 +14,18 @@ add_theme_support( 'menus' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'automatic-feed-links' );
 
-add_action('init', 'load_scripts');
+add_action( 'wp_enqueue_scripts', 'load_scripts');
 add_action('init', 'theme_widgets_init' );
 add_action('admin_menu', 'offcanvas_admin');
 add_action('customize_register', 'offcanvas_customize_register' );
 
 // This theme styles the visual editor with editor-style.css to match the theme style.
 add_editor_style();
+
+// Enqueue a style just for IE8 (and older) and only show it on those clients
+global $wp_styles;
+wp_enqueue_style('ie8-style', get_template_directory_uri() . '/ie8.css');
+$wp_styles->add_data('ie8-style', 'conditional', 'lte IE 8');
 
 $preset_widgets = array (
  'left_sidebar_widget_area'  => array( 'search', 'meta' ),
@@ -48,9 +53,12 @@ if ( is_readable($locale_file) )
 
 // Function to load scripts...
 function load_scripts() {
-  //$path = get_bloginfo('template_directory');
+  $path = get_template_directory_uri();
+  
+  wp_register_script('offcanvas-theme_javascript', $path. '/js/theme.js', array('jquery'));
+
   wp_enqueue_script('jquery');
-  //wp_enqueue_script('theme_javascript',  $path . '/theme.js', array('jquery'));
+  wp_enqueue_script('offcanvas-theme_javascript');
 }
 
 

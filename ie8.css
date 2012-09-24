@@ -1,0 +1,28 @@
+.site-title {
+text-align: center;
+font-size: 100px;
+margin-bottom: -.2em;
+padding: 0;
+}
+.site-title img {width: 300px;}
+.off-canvas-navigation {display: none;}
+	.js [role="mainnavigation"] {
+width: 19%;
+margin-left: 0;
+float: left;
+padding: 3%;
+background: #222;
+}
+.js [role="main"] {
+width: 44%;
+padding: 3%;
+}
+.js [role="complementary"] {
+width: 19%;
+padding: 3%;
+margin-right: 0;
+float: right;
+background: #222;
+}
+	div.two-column {width: 69% !important;}
+	.site-footer {background: #222;}
