@@ -2,7 +2,8 @@
 <html id="doc" class="no-js" <?php language_attributes(); ?>>
 <head profile="http://gmpg.org/xfn/11">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0;">	
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
     <title><?php
         if ( is_single() ) { single_post_title(); }
         elseif ( is_home() || is_front_page() ) { bloginfo('name'); print ' | '; bloginfo('description'); get_page_number(); }
