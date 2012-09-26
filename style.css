@@ -370,15 +370,16 @@ div.entry-utility {font-size: 12px;}
 @media all and (min-width: 600px) {
 	pre { margin: 0 0 0 10% }
 	body { margin-top: 0; box-shadow: inset 0 0 50px rgba(255,255,255,.4); }	
-	.site-title { text-align: left; margin-bottom: -0.8em; font-size: 60px; padding: 1% 0 0 30%;}
+	.site-title { text-align: center; margin-bottom: -0.8em; font-size: 60px; padding: 1% 0 0 0;}
 	.site-title img { width: 240px; padding-top: 1%;}		
 	.off-canvas-navigation ul li {
-		float: right;
+		float: left;
 		width: 20%;
 	}	
-	.menu-button {display: none;}
-	.sidebar-button {border: none;}	
-	.js [role="mainnavigation"] {
+	.menu-button {border: none;}
+	.sidebar-button {display: none;}	
+
+	.js [role="complementary"] {
 		width: 20%;	
 		margin-left: 0;
 	}
@@ -386,21 +387,22 @@ div.entry-utility {font-size: 12px;}
 		width: 60%;
 		float: left;
 	}
-	.js [role="complementary"] {width: 20%;}				
-	.active-sidebar [role="mainnavigation"] {margin-left: -100%;}
-	.active-sidebar [role="main"] {
-		margin-left: 0;
+	.js [role="mainnavigation"] {width: 20%;}				
+	.active-nav[role="complementary"] {margin-left: -200%;}
+	.active-nav [role="main"] {
+		margin-right: 0;
 		width: 60%;
+		margin-left:30%;
 	}
-	.active-sidebar [role="complementary"] {	
-		margin-right: -80%;
+	.active-nav [role="mainnavigation"] {	
+		margin-right: -60%;
 		width: 20%;
 	}
 	[role="main"] h1 {text-align: left;}				
 }
 
 
-@media all and (min-width: 1000px) {
+@media all and (min-width: 900px) {
 	.site-title {text-align: center; font-size: 100px; margin-bottom: -.1em; padding: 0;}
 	.site-title img { width: 300px; padding-top: 1%;}	
 	.container {max-width: 1140px; margin: 0 auto;}
