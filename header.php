@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html id="doc" class="no-js" <?php language_attributes(); ?>>
-<head profile="http://gmpg.org/xfn/11">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
@@ -92,7 +92,7 @@ echo '</style>';
 <div id="wrapper" class="hfeed container">
     <div id="header">
         <div id="masthead">
-					<hgroup>
+					
 					<?php if ( get_header_image() != '' ) : ?>
                
         <div id="logo" class="site-title">
@@ -110,16 +110,16 @@ echo '</style>';
 
     <?php endif; // header image was removed (again) ?>
 			
-			</hgroup>
+			
 
             <div id="access">
 				<!--<div class="skip-link"><a href="#content" title="<?php _e( 'Skip to content', 'offcanvas-theme' ) ?>"><?php _e( 'Skip to content', 'offcanvas-theme' ) ?></a></div>-->
-							<span class="off-canvas-navigation">
+							<div class="off-canvas-navigation">
 								<ul>
 									<li class="menu-item"><a class='menu-button' href="#menu"><span class='menutext'>Menu &#x2630;</span><span class='maintextmenu'>Main</span></a></li>			
 									<li class="sidebar-item"><a class='sidebar-button' href="#sidebar"><span class='sidetext'>Extra +</span><span class='maintextside'>Main</span></a></li>
 								</ul>
-							</span>	
+							</div>	
             </div><!-- #access -->
  			
         </div><!-- #masthead -->

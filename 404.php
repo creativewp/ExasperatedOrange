@@ -4,7 +4,7 @@
 			      <?php get_sidebar('left'); ?>
             <div id="content"  role="main">
 						
-			<article id="post-0" class="post error404 not-found">
+			<div id="post-0" class="post error404 not-found">
 				<header class="entry-header">
 					<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'offcanvas-theme' ); ?></h1>
 				</header>
@@ -15,7 +15,7 @@
 					<p><a href="/">Go to the Home page</a> </p>
 
 					<?php get_search_form(); ?>
-
+ 
 					<?php the_widget( 'WP_Widget_Recent_Posts', array( 'number' => 10 ), array( 'widget_id' => '404' ) ); ?>
 
 					<div class="widget">
@@ -34,7 +34,7 @@
 					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
 
 				</div><!-- .entry-content -->
-			</article><!-- #post-0 -->
+			</div><!-- #post-0 -->
 
             </div><!-- #content -->
 			<?php get_sidebar('right'); ?>
